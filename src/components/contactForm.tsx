@@ -14,7 +14,7 @@ export const Form = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    // event.preventDefault(); // Prevent default form submission as it alters the form action
+    event.preventDefault(); // Prevent default form submission as it alters the form action
 
     // Perform any form submission logic, such as sending the email
     const formData = new FormData(event.currentTarget);
