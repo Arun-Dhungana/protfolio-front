@@ -16,7 +16,6 @@ export const fetchMessage = async () => {
 
     return data; // Ensure this is a plain object or array
   } catch (error: any) {
-    console.error("Error fetching messages:", error);
     return { error: error.message };
   }
 };
