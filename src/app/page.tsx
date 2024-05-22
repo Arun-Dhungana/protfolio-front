@@ -17,7 +17,7 @@ export default function Home() {
             />
           </div>
           <div className=" pe-5  flex flex-col justify-center">
-            <text className="font-extrabold text-4xl">Arun Dhungana</text>
+            <h1 className="font-extrabold text-4xl">Arun Dhungana</h1>
             <p className="text-xl ">Web Developer</p>
             <br></br>
             <br />

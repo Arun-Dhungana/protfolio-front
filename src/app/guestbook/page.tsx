@@ -23,7 +23,7 @@ const GuestBook = async () => {
                   <h1 className="mb-3 text-lg">{datas.message}</h1>
                   <span className="flex flex-row space-x-6 text-sm text-gray-500">
                     <h4>{datas.name} </h4>
-                    <symbol>/</symbol>
+                    <h1>/</h1>
                     <h5>
                       {moment(datas.createdAt).format(
                         "MMMM Do YYYY, h:mm:ss a"
