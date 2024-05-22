@@ -20,7 +20,7 @@ export async function sendEmail(
       email: formdata.get("email"),
       phonenumber: formdata.get("phonenumber"),
     });
-    await fetch("http://localhost:4000/mail", {
+    await fetch("https://protfolio-api-amso.onrender.com/mail", {
       method: "POST",
       headers: {
         "Content-Type": "application/json", // Important to set the Content-Type header

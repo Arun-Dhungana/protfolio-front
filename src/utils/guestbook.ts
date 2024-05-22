@@ -18,7 +18,7 @@ export async function guestbook(
       message: formdata.get("message"),
     });
 
-    await fetch("http://localhost:4000/guestbook", {
+    await fetch("https://protfolio-api-amso.onrender.com/guestbook", {
       method: "POST",
       headers: {
         "Content-Type": "application/json", // Important to set the Content-Type header

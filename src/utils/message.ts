@@ -2,10 +2,13 @@
 
 export const fetchMessage = async () => {
   try {
-    const response = await fetch("http://localhost:4000/guestbook", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await fetch(
+      "https://protfolio-api-amso.onrender.com/guestbook",
+      {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      }
+    );
     if (!response.ok) {
       throw new Error("Failed to fetch messages");
     }
