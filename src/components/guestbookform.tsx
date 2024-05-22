@@ -25,7 +25,7 @@ export function Form() {
 
   function Submit() {
     const { pending } = useFormStatus();
-    console.log(pending);
+
     return (
       <button
         type="submit"

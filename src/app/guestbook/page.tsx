@@ -4,7 +4,7 @@ import moment from "moment";
 
 const GuestBook = async () => {
   const data = await fetchMessage();
-  console.log(data);
+
   return (
     <div className="p-3">
       <Form></Form>

@@ -30,7 +30,7 @@ export async function sendEmail(
 
     return { message: "Email sent successfully" };
   } catch (err: any) {
-    console.log(err);
+
     return { message: `Error :${err.message}` };
   }
 }
