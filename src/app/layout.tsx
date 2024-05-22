@@ -22,7 +22,7 @@ export default function RootLayout({
         className={`${inter.className} flex flex-col min-h-screen dark:bg-black `}
       >
         <Providers>
-          {/* <Navbar></Navbar> */}
+          <Navbar></Navbar>
           <div className=" lg:mx-auto lg:w-[60%]">{children}</div>
           <Footer></Footer>
         </Providers>
