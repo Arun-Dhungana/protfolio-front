@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
 export async function guestbook(
-  prevState: { message: string },
+  prevState: { message: { msg: String; status: number } },
   formdata: FormData
 ) {
   const schema = z.object({
@@ -28,8 +28,8 @@ export async function guestbook(
 
     revalidatePath("/guestbook");
 
-    return { message: "Succesfull addition" };
+    return { message: { msg: "Succesfull addition", status: 200 } };
   } catch (err) {
-    return { message: "Error in addition" };
+    return { message: { msg: "Error in addition", status: 400 } };
   }
 }

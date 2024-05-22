@@ -3,15 +3,21 @@ import { guestbook } from "@/utils/guestbook";
 import { useFormState, useFormStatus } from "react-dom";
 import LoadingIcon from "@mui/icons-material/CircleRounded";
 import { FormEvent, useRef } from "react";
+import toast from "react-hot-toast";
 
 export function Form() {
-  const initialState = { message: "" };
+  const initialState = {
+    message: {
+      msg: "",
+      status: 0,
+    },
+  };
 
   const [state, formaction] = useFormState(guestbook, initialState);
   const formRef = useRef<HTMLFormElement>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault(); // Prevent default form submission
+    // event.preventDefault(); // Prevent default form submission
 
     // Perform any form submission logic, such as sending the email
     const formData = new FormData(event.currentTarget);
@@ -59,9 +65,9 @@ export function Form() {
         wisdom, anything good or bad about me or even humor. Surprise me!
       </p>
       <form
+        action={formaction}
         ref={formRef}
         onSubmit={handleSubmit}
-        action={formaction}
         className="flex flex-col border-[3px]  bg-slate-300 space-y-5 dark:bg-blue-200 dark:border-blue-200 p-2 "
       >
         <label
@@ -90,7 +96,13 @@ export function Form() {
           className="text-wrap text-lg p-2 min-h-12 h-24 focus:border-[2px] focus:border-blue-900 dark:focus:bg-gray-950 outline-none rounded-lg"
           required
         ></textarea>
-
+        {state.message.msg.length > 0
+          ? state.message.status === 200
+            ? toast.success(state.message.msg) && null
+            : state.message.status === 400
+            ? toast.error(state.message.msg) && null
+            : null
+          : null}
         <Submit></Submit>
       </form>
     </div>

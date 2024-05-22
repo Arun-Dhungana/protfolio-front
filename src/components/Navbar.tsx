@@ -1,101 +1,162 @@
-import Image from "next/image";
+"use client";
 import Link from "next/link";
 import React from "react";
 import { Open_Sans } from "next/font/google";
 import ThemeSwitch from "./ThemeSwitch";
+import { usePathname } from "next/navigation";
 const openSans = Open_Sans({ subsets: ["latin"] });
+
+import { useState } from "react";
+
 export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
   return (
     <nav
-      className={`w-[100%] sticky top-0  bg-white opacity-95  ${openSans.className}  z-10   dark:bg-black dark:text-white `}
+      className={`sticky top-0 bg-white opacity-95 dark:bg-black dark:text-white z-10 ${openSans}`}
     >
-      <div className="flex   justify-center">
-        <div className="block md:hidden ">
-          <div className=" flex flex-row items-center  justify-between">
-            <button
-              type="button"
-              className=" inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white ms-2"
-              aria-controls="mobile-menu"
-              aria-expanded="false"
-            >
-              <svg
-                className="block h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
+      <div className="w-full my-2 relative flex flex-row items-center md:justify-center">
+        {/* Hamburger Icon for Small Screens */}
+        <div className="block md:hidden w-[100%]">
+          <div className="flex flex-col ">
+            <div className="flex flex-row items-center justify-between p-1">
+              <button
+                title="toggle-button"
+                type="button"
+                onClick={() => setIsOpen(!isOpen)}
+                className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white ms-2"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
-              {/* <!--
-              Icon when menu is open.
-  
-              Menu open: "block", Menu closed: "hidden"
-            --> */}
-              <svg
-                className="hidden h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
+                <svg
+                  className={`h-6 w-6 ${isOpen ? "hidden" : "block"}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 12h18M3 6h18M3 18h18"
+                  ></path>
+                </svg>
+                <svg
+                  className={`h-6 w-6 ${isOpen ? "block" : "hidden"}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
 
-            <ThemeSwitch></ThemeSwitch>
+              <ThemeSwitch></ThemeSwitch>
+            </div>
+            <div className={`${isOpen ? "block" : "hidden"} flex flex-col`}>
+              <Link
+                href="/"
+                className={`${
+                  pathname === "/" ? "bg-slate-600 text-white" : ""
+                } hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium `}
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                Home
+              </Link>
+              <Link
+                href="/guestbook"
+                className={`${
+                  pathname === "/guestbook" ? "bg-slate-600 text-white" : ""
+                } hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium `}
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                Guestbook
+              </Link>
+              <Link
+                href="/about"
+                className={`${
+                  pathname === "/about" ? "bg-slate-600 text-white" : ""
+                } hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium `}
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                About
+              </Link>
+              <Link
+                href="/snippet"
+                className={`${
+                  pathname === "/snippet" ? "bg-slate-600 text-white" : ""
+                } hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium `}
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                Snippets
+              </Link>
+              <Link
+                href="/contact"
+                className={`${
+                  pathname === "/contact" ? "bg-slate-600 text-white" : ""
+                } hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium `}
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                Contact
+              </Link>
+            </div>
           </div>
         </div>
-        <div className=" hidden md:block space-x-4 ">
-          <div className=" flex flex-row  justify-center items-center">
-            {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
 
+        {/* Navbar Items */}
+        <div className={` hidden md:block `}>
+          <div className="flex flex-row justify-center md:justify-between space-x-4">
             <Link
               href="/"
-              className="  hover:bg-gray-700  hover:text-white rounded-md px-3 py-2 text-lg font-medium"
-              aria-current="page"
+              className={`${
+                pathname === "/" ? "bg-slate-600 text-white" : ""
+              } hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium `}
             >
               Home
             </Link>
             <Link
-              href="guestbook"
-              className=" hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium"
+              href="/guestbook"
+              className={`${
+                pathname === "/guestbook" ? "bg-slate-600 text-white" : ""
+              } hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium `}
             >
               Guestbook
             </Link>
             <Link
-              href="about"
-              className=" hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium"
+              href="/about"
+              className={`${
+                pathname === "/about" ? "bg-slate-600 text-white" : ""
+              } hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium `}
             >
               About
             </Link>
             <Link
-              href="snippet"
-              className=" hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium"
+              href="/snippet"
+              className={`${
+                pathname === "/snippet" ? "bg-slate-600 text-white" : ""
+              } hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium `}
             >
               Snippets
             </Link>
             <Link
-              href="contact"
-              className=" hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium"
+              href="/contact"
+              className={`${
+                pathname === "/contact" ? "bg-slate-600 text-white" : ""
+              } hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-lg font-medium `}
             >
               Contact
             </Link>
-
-            <ThemeSwitch></ThemeSwitch>
+            <ThemeSwitch />
           </div>
         </div>
       </div>
     </nav>
   );
 };
+
+export default Navbar;

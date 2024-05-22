@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/footer";
 import { Providers } from "./providers";
+import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,9 +22,10 @@ export default function RootLayout({
       <body
         className={`${inter.className} flex flex-col min-h-screen dark:bg-black `}
       >
+        <Toaster position="top-right" />
         <Providers>
           <Navbar></Navbar>
-          <div className=" lg:mx-auto lg:w-[60%]">{children}</div>
+          <div className=" lg:mx-auto lg:w-[60%] ">{children}</div>
           <Footer></Footer>
         </Providers>
       </body>

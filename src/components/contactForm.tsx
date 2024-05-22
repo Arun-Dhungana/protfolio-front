@@ -2,14 +2,19 @@
 import { useFormState, useFormStatus } from "react-dom";
 import { sendEmail } from "@/utils/contact";
 import { FormEvent, useRef } from "react";
-
+import { toast } from "react-hot-toast";
 export const Form = () => {
-  const initialState = { message: "" };
+  const initialState = {
+    message: {
+      msg: "",
+      status: 0,
+    },
+  };
   const [state, formaction] = useFormState(sendEmail, initialState);
   const formRef = useRef<HTMLFormElement>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault(); // Prevent default form submission
+    // event.preventDefault(); // Prevent default form submission as it alters the form action
 
     // Perform any form submission logic, such as sending the email
     const formData = new FormData(event.currentTarget);
@@ -22,7 +27,7 @@ export const Form = () => {
   }
   function Submit() {
     const { pending } = useFormStatus();
-   
+
     return (
       <button
         type="submit"
@@ -88,6 +93,13 @@ export const Form = () => {
           className="dark:bg-black bg-slate-200  h-32 p-2 placeholder-gray-500 min-h-20"
           required
         ></textarea>
+        {state.message.msg.length > 0
+          ? state.message.status === 200
+            ? toast.success(state.message.msg) && null
+            : state.message.status === 400
+            ? toast.error(state.message.msg) && null
+            : null
+          : null}
         <Submit></Submit>
       </form>
     </div>

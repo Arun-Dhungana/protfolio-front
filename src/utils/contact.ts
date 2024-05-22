@@ -3,7 +3,7 @@
 import { z } from "zod";
 
 export async function sendEmail(
-  prevState: { message: string },
+  prevState: { message: { msg: String; status: number } },
   formdata: FormData
 ) {
   const schema = z.object({
@@ -28,9 +28,8 @@ export async function sendEmail(
       body: JSON.stringify(data),
     });
 
-    return { message: "Email sent successfully" };
+    return { message: { msg: "Email sent successfully", status: 200 } };
   } catch (err: any) {
-
-    return { message: `Error :${err.message}` };
+    return { message: { msg: `Error :${err.message}`, status: 400 } };
   }
 }
