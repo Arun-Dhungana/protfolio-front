@@ -25,7 +25,6 @@ export async function guestbook(
       },
       body: JSON.stringify(data),
     });
-    formdata.forEach((_, key) => formdata.delete(key));
 
     revalidatePath("/guestbook");
 
