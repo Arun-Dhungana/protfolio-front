@@ -6,10 +6,13 @@ import Footer from "@/components/footer";
 import { Providers } from "./providers";
 import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
-
+const defaultUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "http://localhost:3000";
 export const metadata: Metadata = {
   title: "Arun Dhungana",
   description: "Protfolio website made using express and nextjs",
+  metadataBase: new URL(defaultUrl),
 };
 
 export default function RootLayout({
