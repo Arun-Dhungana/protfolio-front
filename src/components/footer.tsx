@@ -37,25 +37,25 @@ const Footer = () => {
         <hr className="block md:hidden"></hr>
         <div className="flex flex-col space-y-4">
           <Link
-            href=""
+            href="/guestbook"
             className="hover:text-gray-800 dark:hover:text-gray-300"
           >
             Guestbook
           </Link>
           <Link
-            href=""
+            href="/about"
             className="hover:text-gray-800  dark:hover:text-gray-300"
           >
             About
           </Link>
           <Link
-            href=""
+            href="/contact"
             className="hover:text-gray-800  dark:hover:text-gray-300"
           >
             Contact
           </Link>
           <Link
-            href=""
+            href="/Snippets"
             className="hover:text-gray-800  dark:hover:text-gray-300"
           >
             Snippets
@@ -66,25 +66,34 @@ const Footer = () => {
         <hr className="block md:hidden"></hr>
         <div className="flex flex-col justify-center space-y-4">
           <Link
-            href=""
+            href="https://github.com/Arun-Dhungana"
             className="hover:text-gray-800 dark:hover:text-gray-100"
           >
             <span className="flex items-center ">
               Github<GitHubIcon fontSize="small"></GitHubIcon>
             </span>
           </Link>
-          <Link href="" className="hover:text-blue-400">
+          <Link
+            href="https://www.linkedin.com/in/arun-dhungana-151047229/"
+            className="hover:text-blue-400"
+          >
             <span className="flex items-center ">
               Linkedin
               <LinkedInIcon fontSize="small"></LinkedInIcon>
             </span>
           </Link>
-          <Link href="" className="hover:text-blue-800">
+          <Link
+            href="https://www.facebook.com/profile.php?id=100036034421587"
+            className="hover:text-blue-800"
+          >
             <span className="flex items-center ">
               Facebook<FacebookIcon fontSize="small"></FacebookIcon>
             </span>
           </Link>
-          <Link href="" className="hover:text-pink-800">
+          <Link
+            href="https://www.instagram.com/_arundhungana/"
+            className="hover:text-pink-800"
+          >
             <span className="flex items-center ">
               Instagram<InstagramIcon fontSize="small"></InstagramIcon>
             </span>

@@ -1,18 +1,38 @@
 export const Ske = () => {
   return (
-    <div className="mb-7 animate-pulse">
-      <h1 className="mb-3 text-lg">
-        <div className="h-4 bg-gray-200 rounded w-1/2"></div>
-      </h1>
-      <span className="flex flex-row space-x-6 text-sm text-gray-500">
-        <h4>
-          <div className="h-3 bg-gray-200 rounded w-1/4"></div>
-        </h4>
-        <h1>/</h1>
-        <h5>
-          <div className="h-3 bg-gray-200 rounded w-1/4"></div>
-        </h5>
-      </span>
+    <div>
+      <div className="mb-7 animate-pulse">
+        <div className="h-4 bg-gray-200 rounded w-full md:w-1/2 mb-3"></div>
+        <div className=" text-lg flex flex-row items-center space-x-5 ">
+          <h5 className="h-3 bg-gray-200 rounded w-1/3 md:w-1/5"></h5>
+          <h1>/</h1>
+          <h5 className="h-3 bg-gray-200 rounded w-1/3 md:w-1/5"></h5>
+        </div>
+      </div>
+      <div className="mb-7 animate-pulse">
+        <div className="h-4 bg-gray-200 rounded w-full md:w-1/2 mb-3"></div>
+        <div className=" text-lg flex flex-row items-center space-x-5 ">
+          <h5 className="h-3 bg-gray-200 rounded w-1/3 md:w-1/5"></h5>
+          <h1>/</h1>
+          <h5 className="h-3 bg-gray-200 rounded w-1/3 md:w-1/5"></h5>
+        </div>
+      </div>
+      <div className="mb-7 animate-pulse">
+        <div className="h-4 bg-gray-200 rounded w-full md:w-1/2 mb-3"></div>
+        <div className=" text-lg flex flex-row items-center space-x-5 ">
+          <h5 className="h-3 bg-gray-200 rounded w-1/3 md:w-1/5"></h5>
+          <h1>/</h1>
+          <h5 className="h-3 bg-gray-200 rounded w-1/3 md:w-1/5"></h5>
+        </div>
+      </div>
+      <div className="mb-7 animate-pulse">
+        <div className="h-4 bg-gray-200 rounded w-full md:w-1/2 mb-3"></div>
+        <div className=" text-lg flex flex-row items-center space-x-5 ">
+          <h5 className="h-3 bg-gray-200 rounded w-1/3 md:w-1/5"></h5>
+          <h1>/</h1>
+          <h5 className="h-3 bg-gray-200 rounded w-1/3 md:w-1/5"></h5>
+        </div>
+      </div>
     </div>
   );
 };

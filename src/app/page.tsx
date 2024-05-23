@@ -41,13 +41,16 @@ export default function Home() {
               Protfolio website made using nextjs,mysql and express.
             </p>
             <div className="flex gap-4 ">
-              <Link href="https://jobhub-nu.vercel.app/" target="_blank">
+              <Link href="https://arundhungana-mu.vercel.app/" target="_blank">
                 <HomeOutlinedIcon
                   fontSize="large"
                   className="hover:cursor-pointer hover:text-blue-600"
                 ></HomeOutlinedIcon>
               </Link>
-              <Link href="https://jobhub-nu.vercel.app/ " target="_blank">
+              <Link
+                href="https://github.com/Arun-Dhungana/protfolio-front"
+                target="_blank"
+              >
                 <GitHubIcon
                   fontSize="large"
                   className="hover:cursor-pointer hover:text-[#8D6346]"
@@ -56,18 +59,25 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-col md:flex-row border border-l-gray-700 p-3 my-5 items-center bg-slate-300 hover:bg-slate-400 justify-between dark:bg-slate-800 dark:hover:bg-slate-700">
-            <h4 className="mb-5 md:mb-0 font-bold ">Protfolio website</h4>
+            <h4 className="mb-5 md:mb-0 font-bold ">ChatApp</h4>
             <p className="md:mx-3 mb-5 md:mb-0">
-              Protfolio website made using nextjs,mysql and express.
+              Used clerk for authentication and getstream.io for building socket
+              connection.
             </p>
             <div className="flex gap-4 ">
-              <Link href="https://jobhub-nu.vercel.app/" target="_blank">
+              <Link
+                href="https://chatapp-five-black.vercel.app/"
+                target="_blank"
+              >
                 <HomeOutlinedIcon
                   fontSize="large"
                   className="hover:cursor-pointer hover:text-blue-600"
                 ></HomeOutlinedIcon>
               </Link>
-              <Link href="https://jobhub-nu.vercel.app/ " target="_blank">
+              <Link
+                href="https://github.com/Arun-Dhungana/ChatApp"
+                target="_blank"
+              >
                 <GitHubIcon
                   fontSize="large"
                   className="hover:cursor-pointer hover:text-[#8D6346]"
@@ -88,7 +98,10 @@ export default function Home() {
                   className="hover:cursor-pointer hover:text-blue-600"
                 ></HomeOutlinedIcon>
               </Link>
-              <Link href="https://jobhub-nu.vercel.app/ " target="_blank">
+              <Link
+                href="https://github.com/Arun-Dhungana/Job-portal"
+                target="_blank"
+              >
                 <GitHubIcon
                   fontSize="large"
                   className="hover:cursor-pointer hover:text-[#8D6346]"

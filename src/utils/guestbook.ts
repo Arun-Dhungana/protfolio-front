@@ -18,18 +18,22 @@ export async function guestbook(
       message: formdata.get("message"),
     });
 
-    await fetch("https://protfolio-api-amso.onrender.com/guestbook", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json", // Important to set the Content-Type header
-      },
-      body: JSON.stringify(data),
-    });
-
+    const response = await fetch(
+      "https://protfolio-api-amso.onrender.com/guestbook",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // Important to set the Content-Type header
+        },
+        body: JSON.stringify(data),
+      }
+    );
+    if (!response.ok) {
+      throw new Error("Error fetching data");
+    }
     revalidatePath("/guestbook");
-
-    return { message: { msg: "Succesfull addition", status: 200 } };
+    return { message: { msg: "Succesfully signed", status: 200 } };
   } catch (err) {
-    return { message: { msg: "Error in addition", status: 400 } };
+    return { message: { msg: "Error in signing.", status: 400 } };
   }
 }

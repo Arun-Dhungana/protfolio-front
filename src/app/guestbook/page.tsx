@@ -7,7 +7,7 @@ const GuestBook = async () => {
   return (
     <div className="p-3">
       <Form></Form>
-      <Suspense fallback="Ske">
+      <Suspense fallback={<Ske></Ske>}>
         <Data></Data>
       </Suspense>
     </div>

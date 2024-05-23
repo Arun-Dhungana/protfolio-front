@@ -3,6 +3,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import { sendEmail } from "@/utils/contact";
 import { FormEvent, useRef } from "react";
 import { toast } from "react-hot-toast";
+import { revalidatePath } from "next/cache";
 export const Form = () => {
   const initialState = {
     message: {
@@ -11,20 +12,12 @@ export const Form = () => {
     },
   };
   const [state, formaction] = useFormState(sendEmail, initialState);
-  const formRef = useRef<HTMLFormElement>(null);
-
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault(); // Prevent default form submission as it alters the form action
-
-    // Perform any form submission logic, such as sending the email
-    const formData = new FormData(event.currentTarget);
-    await formaction(formData);
-
-    // Reset the form after submission
-    if (formRef.current) {
-      formRef.current.reset();
-    }
+  if (state.message.msg && state.message.status == 200) {
+    toast.success(state.message.msg);
+  } else if (state.message.msg && state.message.status == 400) {
+    toast.error(state.message.msg);
   }
+
   function Submit() {
     const { pending } = useFormStatus();
 
@@ -55,12 +48,7 @@ export const Form = () => {
   }
   return (
     <div className="shadow-2xl dark:bg-slate-800 p-3 md:w-1/2 rounded mx-auto">
-      <form
-        ref={formRef}
-        onSubmit={handleSubmit}
-        action={formaction}
-        className="space-y-5 flex flex-col "
-      >
+      <form action={formaction} className="space-y-5 flex flex-col ">
         <input
           title="name "
           placeholder="Full name *"
@@ -93,13 +81,7 @@ export const Form = () => {
           className="dark:bg-black bg-slate-200  h-32 p-2 placeholder-gray-500 min-h-20"
           required
         ></textarea>
-        {state.message.msg.length > 0
-          ? state.message.status === 200
-            ? toast.success(state.message.msg) && null
-            : state.message.status === 400
-            ? toast.error(state.message.msg) && null
-            : null
-          : null}
+
         <Submit></Submit>
       </form>
     </div>
